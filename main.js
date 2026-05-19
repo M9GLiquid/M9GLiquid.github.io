@@ -1,4 +1,4 @@
-import { headerHtml } from './sections/header.js?v=20260518h';
+import { headerHtml } from './sections/header.js?v=20260519a';
 import { heroHtml } from './sections/hero.js?v=20260518h';
 import { aboutHtml } from './sections/about.js?v=20260518h';
 import { skillsHtml } from './sections/skills.js?v=20260518h';

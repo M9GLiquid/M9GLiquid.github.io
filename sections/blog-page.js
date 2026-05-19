@@ -1,4 +1,4 @@
-import { siteHeaderHtml } from './header.js?v=20260518h';
+import { siteHeaderHtml } from './header.js?v=20260519a';
 import { footerHtml } from './footer.js?v=20260518h';
 import { blogGalleries } from '../data/blog-galleries.js?v=20260518m';
 import { relatedPostLinks } from '../data/blog-related.js?v=20260518m';
