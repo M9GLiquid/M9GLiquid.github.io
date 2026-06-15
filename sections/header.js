@@ -31,3 +31,57 @@ export const siteHeaderHtml = ({ homeHref = '#top', sectionPrefix = '', blogHref
 `;
 
 export const headerHtml = siteHeaderHtml();
+
+const addGraduationPhoto = () => {
+  const post = document.getElementById('graduation');
+  if (!post || post.querySelector('.graduation-photo')) return;
+
+  const heading = post.querySelector('h2');
+  if (!heading) return;
+
+  const photoSrc = 'assets/Messenger_creation_4CDAAD14-E10F-4342-A9A3-A29B5AEB14A3.jpeg';
+  const photoAlt = 'Graduation day photo at Halmstad University';
+
+  const figure = document.createElement('figure');
+  figure.className = 'story-image graduation-photo';
+
+  const button = document.createElement('button');
+  button.className = 'image-modal-trigger';
+  button.type = 'button';
+  button.dataset.fullSrc = photoSrc;
+  button.dataset.fullAlt = photoAlt;
+  button.setAttribute('aria-label', 'Open full-size graduation photo');
+
+  const image = document.createElement('img');
+  image.src = photoSrc;
+  image.alt = photoAlt;
+
+  const caption = document.createElement('figcaption');
+  caption.textContent = 'Graduation day at Halmstad University.';
+
+  button.appendChild(image);
+  figure.appendChild(button);
+  figure.appendChild(caption);
+  heading.insertAdjacentElement('afterend', figure);
+
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('imageModalImg');
+  if (modal && modalImg) {
+    button.addEventListener('click', () => {
+      modalImg.src = photoSrc;
+      modalImg.alt = photoAlt;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    });
+  }
+};
+
+const scheduleGraduationPhoto = () => {
+  requestAnimationFrame(() => requestAnimationFrame(addGraduationPhoto));
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', scheduleGraduationPhoto);
+} else {
+  scheduleGraduationPhoto();
+}
