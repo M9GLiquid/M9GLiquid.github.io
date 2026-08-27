@@ -1,10 +1,9 @@
-export const siteHeaderHtml = ({ homeHref = '#top', sectionPrefix = '', blogHref = 'about.html' } = {}) => `
+export const siteHeaderHtml = ({ homeHref = '#top', sectionPrefix = '' } = {}) => `
   <header class="topbar">
     <div class="wrap nav">
       <a class="brand" href="${homeHref}">Thomas Lundqvist</a>
       <div class="nav-right">
         <nav class="nav-links" aria-label="Page sections">
-          <a href="${blogHref}">Blog</a>
           <a href="${sectionPrefix}#projects">Projects</a>
           <a href="${sectionPrefix}#work">Work</a>
         </nav>

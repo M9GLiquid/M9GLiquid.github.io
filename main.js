@@ -1,15 +1,13 @@
-import { headerHtml } from './sections/header.js?v=20260519a';
-import { heroHtml } from './sections/hero.js?v=20260518h';
-import { aboutHtml } from './sections/about.js?v=20260518h';
+import { headerHtml } from './sections/header.js?v=20260827a';
+import { heroHtml } from './sections/hero.js?v=20260827e';
 import { skillsHtml } from './sections/skills.js?v=20260518h';
-import { projectsHtml } from './sections/projects.js?v=20260518h';
-import { workHtml } from './sections/work.js?v=20260518h';
+import { projectsHtml } from './sections/projects.js?v=20260827a';
+import { workHtml } from './sections/work.js?v=20260827a';
 import { contactHtml } from './sections/contact.js?v=20260518h';
 import { footerHtml } from './sections/footer.js?v=20260518h';
-import { projects } from './data/projects.js?v=20260518h';
-import { workProjects } from './data/work-projects.js?v=20260518h';
-import { skillGroups } from './data/skills.js?v=20260518h';
-import { blogPosts } from './data/blog-posts.js?v=20260518h';
+import { projects } from './data/projects.js?v=20260827b';
+import { workProjects } from './data/work-projects.js?v=20260827c';
+import { skillGroups } from './data/skills.js?v=20260827a';
 
 const app = document.getElementById('app');
 
@@ -18,7 +16,6 @@ if (app) {
     ${headerHtml}
     <main id="top">
       ${heroHtml}
-      ${aboutHtml}
       ${skillsHtml}
       ${projectsHtml}
       ${workHtml}
@@ -31,7 +28,6 @@ if (app) {
 const grid = document.getElementById('projectGrid');
 const workGrid = document.getElementById('workProjectGrid');
 const skillsGrid = document.getElementById('skillsGrid');
-const blogPreviewGrid = document.getElementById('blogPreviewGrid');
 
 const normalizeSkill = (value) =>
   value
@@ -51,55 +47,12 @@ const skillMatchMap = new Map(
 );
 
 const projectCards = [];
-const blogPostByProject = new Map([
-  ['cchat', 'cchat'],
-  ['2d dungeon map nl generator', 'nl-dungeon'],
-  ['conquest', 'kingconquest'],
-  ['ericsson', 'ericsson-thesis'],
-  ['axis communications ab', 'axis-thesis'],
-  ['hms networks', 'hms-networks']
-]);
-
-const projectLinksHtml = ({ repo, blogPost }) => {
-  const links = [];
-
-  if (repo) {
-    links.push(`<a href="${repo}" target="_blank" rel="noreferrer">Open repo</a>`);
-  }
-
-  if (blogPost) {
-    links.push(`<a href="about.html#${blogPost}">Read blog</a>`);
-  }
-
-  return links.length ? `<div class="project-links">${links.join('')}</div>` : '';
-};
-
-if (blogPreviewGrid) {
-  blogPosts
-    .sort((a, b) => b.date.localeCompare(a.date))
-    .slice(0, 3)
-    .forEach((post) => {
-      const card = document.createElement('a');
-      card.className = 'timeline-card timeline-card-link';
-      card.href = `about.html#${post.id}`;
-      card.innerHTML = `
-        <div class="story-meta">
-          <small>${post.category}</small>
-          <time datetime="${post.date}">${post.displayDate}</time>
-        </div>
-        <h3>${post.title}</h3>
-        <p>
-          ${post.excerpt}
-          <span class="card-more">Read -></span>
-        </p>
-      `;
-      blogPreviewGrid.appendChild(card);
-    });
-}
+const projectLinksHtml = (repo) => repo
+  ? `<div class="project-links"><a href="${repo}" target="_blank" rel="noreferrer">Open repo</a></div>`
+  : '';
 
 if (grid) {
   projects.forEach((project) => {
-    const blogPost = blogPostByProject.get(normalizeSkill(project.title));
     const card = document.createElement('article');
     card.className = 'project-card';
     card.dataset.project = normalizeSkill(project.title);
@@ -116,7 +69,7 @@ if (grid) {
       <div class="meta">
         ${project.stack.map((item) => `<span>${item}</span>`).join('')}
       </div>
-      ${projectLinksHtml({ repo: project.repo, blogPost })}
+      ${projectLinksHtml(project.repo)}
     `;
     grid.appendChild(card);
     projectCards.push(card);
@@ -125,7 +78,6 @@ if (grid) {
 
 if (workGrid) {
   workProjects.forEach((project) => {
-    const blogPost = blogPostByProject.get(normalizeSkill(project.title));
     const card = document.createElement('article');
     card.className = 'project-card';
     card.dataset.project = normalizeSkill(project.title);
@@ -142,7 +94,6 @@ if (workGrid) {
       <div class="meta">
         ${project.stack.map((item) => `<span>${item}</span>`).join('')}
       </div>
-      ${projectLinksHtml({ blogPost })}
     `;
     workGrid.appendChild(card);
     projectCards.push(card);

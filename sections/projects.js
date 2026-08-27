@@ -6,7 +6,8 @@ export const projectsHtml = `
           <h2>Selected projects</h2>
         </div>
         <p>
-          A few personal projects that show how I think, build, and iterate.
+          Personal and academic projects spanning systems programming, computer vision, robotics, AI, and game development.
+          Each card highlights the problem space, implementation focus, and tools I used.
         </p>
       </div>
 

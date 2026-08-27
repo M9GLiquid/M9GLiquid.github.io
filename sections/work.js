@@ -6,7 +6,7 @@ export const workHtml = `
           <h2>My work projects</h2>
         </div>
         <p>
-          Some of the work I do is for companies.        
+          Professional and thesis work across AI-driven interaction, embedded Linux, audio processing, and systems software.
         </p>
       </div>
 
