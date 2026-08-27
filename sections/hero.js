@@ -24,7 +24,7 @@ export const heroHtml = `
           <div class="hero-copy">
             <p class="lead">
               I'm Thomas Lundqvist, a Swedish M.Sc. graduate in Computer Engineering.
-              I like work that sits between software, interaction, and systems thinking.
+              I'm interested in software, hardware, games, and understanding how computer systems work.
             </p>
             <div class="cta-row">
               <a class="hero-link" href="#work">My work projects</a>
@@ -54,11 +54,11 @@ export const heroHtml = `
           </div>
         </div>
 
-        <div>
+        <div class="current-focus">
+          <strong>Current focus</strong>
           <p class="muted-copy">
-            I build across software systems, game logic, embedded work, and AI-driven tools. 
-            I am most interested in projects that mix implementation, experimentation, 
-            and problem solving, and I tend to learn fastest when I can prototype ideas in code.
+            I'm currently working on CCHAT and learning C++ with the goal of porting CCHAT to C++.
+            I work both with and without AI-assisted tools, and I currently try to spend an hour a day improving my C++.
           </p>
         </div>
       </aside>
@@ -70,8 +70,7 @@ export const heroHtml = `
         <strong>Open to junior software engineer roles</strong>
       </div>
       <p>
-        I'm a recent Computer Engineering M.Sc. graduate who enjoys coding, problem-solving, and understanding computers from software to hardware.
-        I build both independently and with AI-assisted tools, and I currently try to spend an hour a day improving my C++.
+        Based in Sweden and looking for a junior position where I can contribute to real projects and continue growing as an engineer.
       </p>
       <div class="career-note-actions" aria-label="Application documents">
         <a class="button primary career-document-link" href="assets/thomas-lundqvist-cv-en.pdf" target="_blank" rel="noreferrer">

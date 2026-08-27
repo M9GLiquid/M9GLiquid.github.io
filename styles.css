@@ -274,6 +274,20 @@ h1 {
   line-height: 1.6;
 }
 
+.current-focus {
+  margin-top: 24px;
+}
+
+.current-focus > strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.98rem;
+}
+
+.current-focus .muted-copy {
+  margin-bottom: 0;
+}
+
 .cta-row {
   display: flex;
   flex-direction: column;
